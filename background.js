@@ -24,3 +24,4 @@ function extractPageContent() {
     let text = document.body.innerText || document.body.textContent; // Using innerText to avoid scripts/styles content
     return {title, text};
 }
+
