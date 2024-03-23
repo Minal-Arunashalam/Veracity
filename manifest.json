@@ -26,5 +26,8 @@
         "js": ["popup.js"],
         "css": ["popup.css"]
       }
-    ]
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
   }

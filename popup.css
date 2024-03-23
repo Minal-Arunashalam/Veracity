@@ -15,7 +15,7 @@ button {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: green;
+    background-color: #00bf63;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -23,7 +23,7 @@ button {
 }
 
 button:hover {
-    background-color: darkgreen;
+    background-color: #078e4d;
 }
 
 #factResults {

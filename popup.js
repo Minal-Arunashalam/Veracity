@@ -1,47 +1,15 @@
+
 //event listener on button click
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('checkFacts').addEventListener('click', function() {
-        //call article extraction function
-        let articleContent = extractArticleContent();
-        
-        //for testing extraction:
-        let factResultsDiv = document.getElementById('factResults');
-        factResultsDiv.innerHTML = articleContent;  
-
-        // if (articleContent){
-        //     let factResultsDiv = document.getElementById('factResults');
-        //     factResultsDiv.innerHTML = 'success'; 
-        // }else{
-        //     let factResultsDiv = document.getElementById('factResults');
-        //     factResultsDiv.innerHTML = 'fail';  
-        // }
-
-        
-        // call fact-checking function on article content (send article content to gpt)
-        // factCheckArticle(articleContent);
+        // Send a message to the background script
+        chrome.runtime.sendMessage({action: "extractArticleContent"}, (response) => {
+            // Display the extracted content
+            let factResultsDiv = document.getElementById('factResults');
+            factResultsDiv.textContent = response ? response.text : 'Extraction failed';
+        });
     });
 });
-
-//TODO: extract article title & text
-function extractArticleContent() {
-    
-    // let articleElement = document.querySelector('article');
-    
-
-    // Get the text content of the body element
-    let bodyText = document.body.textContent;
-
-    // Return an object containing the title and body text
-    return bodyText;
-    
-    // if (articleElement) {
-    //     return articleElement.textContent;
-    // } else {
-    //     return null;
-    // }
-    
-}
-
 
 
 
